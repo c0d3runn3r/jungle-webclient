@@ -1,0 +1,52 @@
+{
+  "name": "jungle-webclient",
+  "version": "1.0.0",
+  "description": "Jungle Web Client",
+  "main": "server.js",
+  "jshintConfig": {
+    "esversion": 6,
+    "unused": true
+  },
+  "scripts": {
+    "test": "mocha",
+    "lint": "jshint --reporter=node_modules/jshint-stylish server.js test/*.js webapp/*.js",
+    "webpack": "NODE_ENV=production webpack",
+    "build": "npm run lint -s || true && npm run test -s || true && npm run webpack -s || true",
+    "watch:build": "nodemon -w server.js -w test/ -w webapp/ -x npm run build -s",
+    "server": "node server.js | ./node_modules/bunyan/bin/bunyan || true",
+    "watch:server": "nodemon -w server.js -w test/ -w webapp/ -x npm run server -s",
+    "dev": "concurrently 'npm run watch:build -s' 'npm run watch:server'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.0",
+    "bunyan": "^1.8.12",
+    "express": "^4.15.4",
+    "morgan": "^1.8.2",
+    "nconf": "^0.8.4",
+    "sockhop": "^1.3.2",
+    "ws": "^3.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "concurrently": "^3.5.0",
+    "css-loader": "^0.28.7",
+    "expose-loader": "^0.7.3",
+    "file-loader": "^0.11.2",
+    "jquery": "^3.2.1",
+    "jsdoc-to-markdown": "^3.0.0",
+    "jshint": "^2.9.5",
+    "jshint-stylish": "^2.2.1",
+    "json": "^9.0.6",
+    "json-loader": "^0.5.7",
+    "mocha": "^3.5.0",
+    "nodemon": "^1.12.0",
+    "reconnectingwebsocket": "^1.0.0",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.5.6"
+  }
+}

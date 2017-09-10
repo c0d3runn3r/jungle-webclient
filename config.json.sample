@@ -1,0 +1,16 @@
+{
+
+	"webservice" : {
+
+		"address" 	: "192.168.56.102",
+		"port"		:	8080
+	},
+
+	"jungle_server" : {
+
+		"address" 	: "192.168.56.102",
+		"port"		:	8080
+	}
+
+
+}
